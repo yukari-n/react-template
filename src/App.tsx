@@ -11,7 +11,6 @@ interface AppStates {
   result: string;
 }
 
-// const te = ['グー', 'チョキ', 'パー'];
 // const listItems = te.map((gcp: string) =>
 //   <li key={gcp.toString()}><button onClick={() => this.onClick()}>{gcp}</button></li>
 // );
@@ -50,7 +49,9 @@ class App extends React.Component<AppValues, AppStates> {
   }
 
   janken() {
-      this.setState({result: 'あいこ'});
+    const te = ['グー', 'チョキ', 'パー'];
+    var index = Math.floor(Math.random() * te.length);
+    this.setState({comp: te[index], result: '調整中'});
   }
 
   render() {

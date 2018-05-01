@@ -86,9 +86,9 @@ class App extends React.Component<AppValues, AppStates> {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <div>
-          <p className="Player-title">YOU</p>
-          <ul>
+        <div className="App-center">
+          <p>じゃんけんする</p>
+          <ul className="App-te">
             <li><button onClick={() => this.onClickG()}>グー</button></li>
             <li><button onClick={() => this.onClickC()}>チョキ</button></li>
             <li><button onClick={() => this.onClickP()}>パー</button></li>
@@ -102,9 +102,6 @@ class App extends React.Component<AppValues, AppStates> {
           </p>
           <p>{this.state.result}</p>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
       </div>
     );
   }

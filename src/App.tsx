@@ -4,9 +4,11 @@ import './App.css';
 interface AppValues {
   comp: string;
   result: string;
+//   gcp: string;
 }
 
 interface AppStates {
+  gcp: string;
   pushed: number;
 }
 
@@ -19,13 +21,27 @@ class App extends React.Component<AppValues, AppStates> {
   constructor(props: AppValues) {
     super(props);
     this.state = {
-      pushed: 0
+      pushed: 0,
+      gcp: ''
     };
   }
 
-  onClick() {
+  onClickG() {
     this.setState({
-      pushed: this.state.pushed + 1
+      pushed: this.state.pushed + 1,
+      gcp: 'グー'
+    });
+  }
+  onClickC() {
+    this.setState({
+      pushed: this.state.pushed + 1,
+      gcp: 'チョキ'
+    });
+  }
+  onClickP() {
+    this.setState({
+      pushed: this.state.pushed + 1,
+      gcp: 'パー'
     });
   }
 
@@ -38,17 +54,17 @@ class App extends React.Component<AppValues, AppStates> {
         <div>
           <p className="Player-title">YOU</p>
           <ul>
-            <li><button onClick={() => this.onClick()}>グー</button></li>
-            <li><button onClick={() => this.onClick()}>チョキ</button></li>
-            <li><button onClick={() => this.onClick()}>パー</button></li>
+            <li><button onClick={() => this.onClickG()}>グー</button></li>
+            <li><button onClick={() => this.onClickC()}>チョキ</button></li>
+            <li><button onClick={() => this.onClickP()}>パー</button></li>
           </ul>
-        </div>
-        <div>
-          <p className="Player-title">COMPUTER</p>
-          <p>{this.props.comp}</p>
         </div>
         <div className="Result">
           <p>{this.state.pushed}回目の結果</p>
+          <p>
+            プレイヤーの手：{this.state.gcp}<br />
+            コンピューターの手：{this.props.comp}
+          </p>
           <p>{this.props.result}</p>
         </div>
         <p className="App-intro">

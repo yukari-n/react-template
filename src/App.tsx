@@ -10,6 +10,11 @@ interface AppStates {
   value: string;
 }
 
+const te = ['グー', 'チョキ', 'パー'];
+const listItems = te.map((gcp: string) =>
+  <li key={gcp.toString()}>{gcp}</li>
+);
+
 class App extends React.Component<AppValues, AppStates> {
   render() {
     return (
@@ -19,11 +24,7 @@ class App extends React.Component<AppValues, AppStates> {
         </header>
         <div>
           <p className="Player-title">YOU</p>
-          <ul>
-            <li>グー</li>
-            <li>チョキ</li>
-            <li>パー</li>
-          </ul>
+          <ul>{listItems}</ul>
         </div>
         <div>
           <p className="Player-title">COMPUTER</p>

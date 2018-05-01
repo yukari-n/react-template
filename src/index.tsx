@@ -4,6 +4,6 @@ import App from './App';
 import './index.css';
 
 ReactDOM.render(
-  <App comp="グー" />,
+  <App comp="グー" result="あいこ" />,
   document.getElementById('root') as HTMLElement
 );

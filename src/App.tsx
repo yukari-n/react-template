@@ -2,14 +2,13 @@ import * as React from 'react';
 import './App.css';
 
 interface AppValues {
-  comp: string;
-  result: string;
-//   gcp: string;
 }
 
 interface AppStates {
   gcp: string;
   pushed: number;
+  comp: string;
+  result: string;
 }
 
 // const te = ['グー', 'チョキ', 'パー'];
@@ -22,7 +21,9 @@ class App extends React.Component<AppValues, AppStates> {
     super(props);
     this.state = {
       pushed: 0,
-      gcp: ''
+      gcp: '',
+      comp: '',
+      result: ''
     };
   }
 
@@ -31,18 +32,25 @@ class App extends React.Component<AppValues, AppStates> {
       pushed: this.state.pushed + 1,
       gcp: 'グー'
     });
+    this.janken();
   }
   onClickC() {
     this.setState({
       pushed: this.state.pushed + 1,
       gcp: 'チョキ'
     });
+    this.janken();
   }
   onClickP() {
     this.setState({
       pushed: this.state.pushed + 1,
       gcp: 'パー'
     });
+    this.janken();
+  }
+
+  janken() {
+      this.setState({result: 'あいこ'});
   }
 
   render() {
@@ -63,9 +71,9 @@ class App extends React.Component<AppValues, AppStates> {
           <p>{this.state.pushed}回目の結果</p>
           <p>
             プレイヤーの手：{this.state.gcp}<br />
-            コンピューターの手：{this.props.comp}
+            コンピューターの手：{this.state.comp}
           </p>
-          <p>{this.props.result}</p>
+          <p>{this.state.result}</p>
         </div>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.

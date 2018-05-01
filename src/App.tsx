@@ -10,10 +10,10 @@ interface AppStates {
   pushed: number;
 }
 
-const te = ['グー', 'チョキ', 'パー'];
-const listItems = te.map((gcp: string) =>
-  <li key={gcp.toString()}><span>{gcp}</span></li>
-);
+// const te = ['グー', 'チョキ', 'パー'];
+// const listItems = te.map((gcp: string) =>
+//   <li key={gcp.toString()}><button onClick={() => this.onClick()}>{gcp}</button></li>
+// );
 
 class App extends React.Component<AppValues, AppStates> {
   constructor(props: AppValues) {
@@ -25,7 +25,7 @@ class App extends React.Component<AppValues, AppStates> {
 
   onClick() {
     this.setState({
-      pushed: 1
+      pushed: this.state.pushed + 1
     });
   }
 
@@ -37,16 +37,18 @@ class App extends React.Component<AppValues, AppStates> {
         </header>
         <div>
           <p className="Player-title">YOU</p>
-          <ul>{listItems}</ul>
-          <div>{this.state.pushed ? '1' : '0'}
-        <button onClick={() => this.onClick()} />
-      </div>
+          <ul>
+            <li><button onClick={() => this.onClick()}>グー</button></li>
+            <li><button onClick={() => this.onClick()}>チョキ</button></li>
+            <li><button onClick={() => this.onClick()}>パー</button></li>
+          </ul>
         </div>
         <div>
           <p className="Player-title">COMPUTER</p>
           <p>{this.props.comp}</p>
         </div>
         <div className="Result">
+          <p>{this.state.pushed}回目の結果</p>
           <p>{this.props.result}</p>
         </div>
         <p className="App-intro">

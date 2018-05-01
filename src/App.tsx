@@ -55,10 +55,28 @@ class App extends React.Component<AppValues, AppStates> {
     const te = ['グー', 'チョキ', 'パー'];
     var index = Math.floor(Math.random() * te.length);
     this.setState({comp: te[index]});
-    if (te[index] === playerte && this.state.pushed > 0) {
+    if (te[index] === playerte) {
       this.setState({result: 'あいこ'});
     } else {
-      this.setState({result: '調整中'});
+      if (te[index] === 'グー') {
+        if (playerte === 'チョキ') {
+          this.setState({result: 'コンピューターの勝ち！'});
+        } else {
+          this.setState({result: 'プレイヤーの勝ち！'});
+        }
+      } else if (te[index] === 'チョキ') {
+        if (playerte === 'パー') {
+          this.setState({result: 'コンピューターの勝ち！'});
+        } else {
+          this.setState({result: 'プレイヤーの勝ち！'});
+        }
+      } else { // パー
+        if (playerte === 'グー') {
+          this.setState({result: 'コンピューターの勝ち！'});
+        } else {
+          this.setState({result: 'プレイヤーの勝ち！'});
+        }
+      }
     }
   }
 

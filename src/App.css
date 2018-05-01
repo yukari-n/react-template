@@ -41,6 +41,6 @@
   margin:10px;
 }
 
-.App-te button{
+.App-te button, .App-result{
   font-size: 32px;
 }

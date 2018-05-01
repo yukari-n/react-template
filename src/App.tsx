@@ -100,7 +100,7 @@ class App extends React.Component<AppValues, AppStates> {
             プレイヤーの手：{this.state.gcp}<br />
             コンピューターの手：{this.state.comp}
           </p>
-          <p>{this.state.result}</p>
+          <p className="App-result">{this.state.result}</p>
         </div>
       </div>
     );

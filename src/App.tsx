@@ -32,7 +32,7 @@ class App extends React.Component<AppValues, AppStates> {
       gcp: 'グー',
       result: ''
     });
-    this.janken();
+    this.janken('グー');
   }
   onClickC() {
     this.setState({
@@ -40,7 +40,7 @@ class App extends React.Component<AppValues, AppStates> {
       gcp: 'チョキ',
       result: ''
     });
-    this.janken();
+    this.janken('チョキ');
   }
   onClickP() {
     this.setState({
@@ -48,14 +48,14 @@ class App extends React.Component<AppValues, AppStates> {
       gcp: 'パー',
       result: ''
     });
-    this.janken();
+    this.janken('パー');
   }
 
-  janken() {
+  janken(playerte: string) {
     const te = ['グー', 'チョキ', 'パー'];
     var index = Math.floor(Math.random() * te.length);
     this.setState({comp: te[index]});
-    if (this.state.comp === this.state.gcp && this.state.pushed > 0) {
+    if (te[index] === playerte && this.state.pushed > 0) {
       this.setState({result: 'あいこ'});
     } else {
       this.setState({result: '調整中'});

@@ -8,6 +8,11 @@ class App extends React.Component {
         <header className="App-header">
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <ul>
+          <li><button type=button onclick="alert('グー')">グー</button></li>
+          <li><button type=button onclick="alert('チョキ')">チョキ</button></li>
+          <li><button type=button onclick="alert('パー')">パー</button></li>
+        </ul>
         <p className="App-intro">
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </p>
